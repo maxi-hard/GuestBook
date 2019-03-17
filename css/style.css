@@ -1,0 +1,64 @@
+html, body {
+	height: 100%;
+}
+
+html {
+	display: table;
+	margin: auto;
+}
+
+body {
+  display: table-cell;
+  padding-top: 50px;
+}
+
+table {
+  border-collapse: collapse;
+  font-family: Verdana;
+}
+
+tbody, th, td {
+  border: 1px solid black;
+}
+
+tr:not(#tbl_header) > th {
+  font-weight: normal;
+}
+
+
+.css_content, .css_block {
+  display: block;
+  float: left;
+}
+.css_content {
+  width: 100%;
+}
+
+.css_header {
+  width: 100%;
+  display: block;
+  font-family: Verdana;
+}
+
+.css_title {
+  font-size: 72px;
+  color: #5f7988;
+}
+
+.css_descr {
+  font-size: 16px;
+  color: black;
+}
+
+.css_noborder {
+  border-width: 0px;
+}
+
+.css_auth {
+  display: block;
+  float: right;
+}
+
+.g-recaptcha {
+	height: 206px;
+}
