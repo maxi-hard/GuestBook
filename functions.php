@@ -36,7 +36,9 @@
 			function buildRootPath()
 			{
 				$lnkHTTPS = ( ( (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") || $_SERVER["SERVER_PORT"] == 443 ) ? "https" : "http" );
-				return $lnkHTTPS . "://" . $_SERVER["SERVER_NAME"] . dirname( $_SERVER["PHP_SELF"] ) . "/";
+				$port = isset($_SERVER['SERVER_PORT']) && !in_array($_SERVER['SERVER_PORT'], [80, 443]) ? ':' . $_SERVER['SERVER_PORT'] : '';
+
+				return $lnkHTTPS . "://" . $_SERVER["SERVER_NAME"] . $port  . dirname( $_SERVER["PHP_SELF"] ) . "/";
 			}
 	
 	}
