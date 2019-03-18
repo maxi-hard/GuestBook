@@ -117,7 +117,11 @@
 				$secret = '6LfsuZYUAAAAAJqfIaNrR3zo9HpVelDOY57OGiRe';
 				$ip = $_SERVER['REMOTE_ADDR'];
 				$response = $_POST['g-recaptcha-response'];
-				$rsp = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$ip");
+				$curl = curl_init();
+				curl_setopt($curl, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$ip");
+				curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
+				$rsp = curl_exec($curl);
+				curl_close($curl);
 				$arr = json_decode($rsp, TRUE);
 				$captcha_result = ( $arr['success'] ? 1 : 0 );
 			}
